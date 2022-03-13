@@ -1,0 +1,252 @@
+[
+	{
+		"value": "AL",
+		"text": "Alabama",
+		"group": "Printer"
+	},
+	{
+		"value": "AK",
+		"text": "Alaska",
+		"group": "Printer"
+	},
+	{
+		"value": "AZ",
+		"text": "Arizona",
+		"group": "Printer"
+	},
+	{
+		"value": "AR",
+		"text": "Arkansas",
+		"group": "Firewall"
+	},
+	{
+		"value": "CA",
+		"text": "California",
+		"group": "Firewall"
+	},
+	{
+		"value": "CO",
+		"text": "Colorado",
+		"group": "Firewall"
+	},
+	{
+		"value": "CT",
+		"text": "Connecticut",
+		"group": "Keyboard"
+	},
+	{
+		"value": "DE",
+		"text": "Delaware",
+		"group": "Keyboard"
+	},
+	{
+		"value": "FL",
+		"text": "Florida",
+		"group": "Keyboard"
+	},
+	{
+		"value": "GA",
+		"text": "Georgia",
+		"group": "Keyboard"
+	},
+	{
+		"value": "HI",
+		"text": "Hawaii",
+		"group": "Camera"
+	},
+	{
+		"value": "ID",
+		"text": "Idaho",
+		"group": "Camera"
+	},
+	{
+		"value": "IL",
+		"text": "Illinois",
+		"group": "Camera"
+	},
+	{
+		"value": "IN",
+		"text": "Indiana",
+		"group": "Camera"
+	},
+	{
+		"value": "IA",
+		"text": "Iowa",
+		"group": "Camera"
+	},
+	{
+		"value": "KS",
+		"text": "Kansas",
+		"group": "Camera"
+	},
+	{
+		"value": "KY",
+		"text": "Kentucky",
+		"group": "Camera"
+	},
+	{
+		"value": "LA",
+		"text": "Louisiana",
+		"group": "Camera"
+	},
+	{
+		"value": "ME",
+		"text": "Maine",
+		"group": "Camera"
+	},
+	{
+		"value": "MD",
+		"text": "Maryland",
+		"group": "Camera"
+	},
+	{
+		"value": "MA",
+		"text": "Massachusetts",
+		"group": "Camera"
+	},
+	{
+		"value": "MI",
+		"text": "Michigan",
+		"group": "Camera"
+	},
+	{
+		"value": "MN",
+		"text": "Minnesota",
+		"group": "Camera"
+	},
+	{
+		"value": "MS",
+		"text": "Mississippi",
+		"group": "Camera"
+	},
+	{
+		"value": "MO",
+		"text": "Missouri",
+		"group": "Camera"
+	},
+	{
+		"value": "MT",
+		"text": "Montana",
+		"group": "Camera"
+	},
+	{
+		"value": "NE",
+		"text": "Nebraska",
+		"group": "Camera"
+	},
+	{
+		"value": "NV",
+		"text": "Nevada",
+		"group": "Camera"
+	},
+	{
+		"value": "NH",
+		"text": "New Hampshire",
+		"group": "Camera"
+	},
+	{
+		"value": "NJ",
+		"text": "New Jersey",
+		"group": "Camera"
+	},
+	{
+		"value": "NM",
+		"text": "New Mexico",
+		"group": "Camera"
+	},
+	{
+		"value": "NY",
+		"text": "New York",
+		"group": "Camera"
+	},
+	{
+		"value": "NC",
+		"text": "North Carolina",
+		"group": "Camera"
+	},
+	{
+		"value": "ND",
+		"text": "North Dakota",
+		"group": "Camera"
+	},
+	{
+		"value": "OH",
+		"text": "Ohio",
+		"group": "Camera"
+	},
+	{
+		"value": "OK",
+		"text": "Oklahoma",
+		"group": "Camera"
+	},
+	{
+		"value": "OR",
+		"text": "Oregon",
+		"group": "Camera"
+	},
+	{
+		"value": "PA",
+		"text": "Pennsylvania",
+		"group": "Camera"
+	},
+	{
+		"value": "RI",
+		"text": "Rhode Island",
+		"group": "Camera"
+	},
+	{
+		"value": "SC",
+		"text": "South Carolina",
+		"group": "Camera"
+	},
+	{
+		"value": "SD",
+		"text": "South Dakota",
+		"group": "Camera"
+	},
+	{
+		"value": "TN",
+		"text": "Tennessee",
+		"group": "Camera"
+	},
+	{
+		"value": "TX",
+		"text": "Texas",
+		"group": "Camera"
+	},
+	{
+		"value": "UT",
+		"text": "Utah",
+		"group": "Camera"
+	},
+	{
+		"value": "VT",
+		"text": "Vermont",
+		"group": "Camera"
+	},
+	{
+		"value": "VA",
+		"text": "Virginia",
+		"group": "Camera"
+	},
+	{
+		"value": "WA",
+		"text": "Washington",
+		"group": "Camera"
+	},
+	{
+		"value": "WV",
+		"text": "West Virginia",
+		"group": "Camera"
+	},
+	{
+		"value": "WI",
+		"text": "Wisconsin",
+		"group": "Camera"
+	},
+	{
+		"value": "WY",
+		"text": "Wyoming",
+		"group": "Camera"
+	}
+]

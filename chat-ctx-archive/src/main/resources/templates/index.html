@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+<meta charset="UTF-8">
+<title th:text="#{index.title}"></title>
+<link rel="stylesheet" type="text/css" href="/style/themes/default/easyui.css">
+<link rel="stylesheet" type="text/css" href="/style/themes/icon.css">
+<link rel="stylesheet" type="text/css" href="/style/demo.css">
+<link rel="stylesheet" type="text/css" href="/style/index.css">
+<script src="/webjars/jquery/jquery.min.js"></script>
+<script src="/script/jquery.easyui.min.js"></script>
+<style type="text/css"></style>
+<script type="text/javascript">
+	var indexPage = {
+		fromWidth : 0,
+		toWidth : 0,
+		layoutFromResize : function(width, height) {
+			if (typeof width == "number" && typeof height == "number") {
+				console.log("width=" + (typeof width) + ":" + width);
+				console.log("fromWidth=" + (typeof indexPage.fromWidth) + ":"
+						+ indexPage.fromWidth);
+				if (indexPage.fromWidth != width) {
+					if (indexPage.fromWidth != 0) {
+						$('#index-tabs').tabs('resize', {
+							width : (width - 7)
+						});
+						var selectedTab = $('#index-tabs').tabs('getSelected');
+						var selectedTabIndex = $('#index-tabs').tabs('getTabIndex', selectedTab);
+						console.log("layoutFromResize.index=====" + selectedTabIndex);
+						if (selectedTabIndex == 0) {
+							console.log("index-datalist-unicastResize");
+							$("#index-datalist-unicast").datalist('resize', {
+								width : (width - 9)
+							});
+						} else if (selectedTabIndex == 1) {
+							console.log("index-datalist-multicastResize");
+							$("#index-datalist-multicast").datalist('resize', {
+								width : (width - 9)
+							});
+						}
+					}
+					indexPage.fromWidth = width;
+				}
+			}
+		},
+		layoutToResize : function(width, height) {
+			if (typeof width == "number" && typeof height == "number") {
+				console.log("width=" + (typeof width) + ":" + width);
+				console.log("toWidth=" + (typeof indexPage.toWidth) + ":"
+						+ indexPage.toWidth);
+				if (indexPage.toWidth != width) {
+					if (indexPage.toWidth != 0) {
+						$("#index-datalist-to").datalist('resize', {
+							width : (width - 7)
+						});
+					}
+					indexPage.toWidth = width;
+				}
+			}
+		},
+		clickMenu(menuIndex){
+			console.log("clickMenu=" + menuIndex);
+			$("#index-tabs").tabs({selected: menuIndex});
+		},
+		formatterText(value,row,index){
+			console.log("value" + value);
+			console.log(row);
+			console.log("index" + index);
+			return "<span id='my-msg-"+ value +"'>aabbcc</span>";
+		}
+	}
+</script>
+</head>
+<body id="index-layout" class="easyui-layout">
+	<div data-options="region:'north'" style="height: 35px;">
+		<div class="easyui-panel">
+			<a id="menu-index" href="#" class="easyui-linkbutton" th:text="#{index.menu.index}" 
+				data-options="plain:true"></a>
+			<a id="menu-chat" href="#" class="easyui-menubutton" th:text="#{index.menu.chat}" 
+				data-options="menu:'#submenu-chat', iconCls:'icon-tip'"></a>
+			<a id="menu-search" href="#" class="easyui-linkbutton" th:text="#{index.menu.search}" 
+				data-options="plain:true, iconCls:'icon-search'"></a>
+		</div>
+		<div id="submenu-chat">
+			<div th:text="#{index.tabs.unicast}" onclick="indexPage.clickMenu(0)"></div>
+			<div th:text="#{index.tabs.multicast}" onclick="indexPage.clickMenu(1)"></div>
+		</div>
+	</div>
+	<div id="index-layout-west" th:title="#{index.layout.west.title}" style="width: 120px;"
+		data-options="region:'west', split:true, collapsible:false, minWidth:120, onResize: indexPage.layoutFromResize">
+		<div id="index-tabs">
+			<div th:title="#{index.tabs.unicast}">
+				<ul id="index-datalist-unicast" data-options="lines: true, url:'/data/user.json', method:'get'"></ul>
+			</div>
+			<div th:title="#{index.tabs.multicast}">
+				<ul id="index-datalist-multicast"
+					data-options="lines: true, url:'/data/room.json', method:'get'"></ul>
+			</div>
+		</div>
+	</div>
+	<div data-options="region:'center'">
+		<div id="index-layout-to" class="easyui-layout" data-options="fit:true">
+			<div th:title="#{index.layout-to.west.title}" style="width: 120px"
+				data-options="region:'west', split:true, collapsible:false, minWidth:120, onResize: indexPage.layoutToResize">
+				<div id="index-datalist-to" data-options="lines: true"></div>
+			</div>
+			<div data-options="region:'center'">
+				<!-- <div id="index-layout-3" class="easyui-layout" data-options="fit:true">
+					<div data-options="region:'north'" style="height:66px;">
+						<div id="panel-msg" class="easyui-panel">
+							<a href="#" class="easyui-linkbutton" 
+							data-options="iconCls:'icon-large-picture',size:'large',iconAlign:'top'">Picture</a>
+		        			<a href="#" class="easyui-linkbutton" 
+		        			data-options="iconCls:'icon-large-clipart',size:'large',iconAlign:'top'">Clip Art</a>
+		        			<a href="#" class="easyui-linkbutton" 
+		        			data-options="iconCls:'icon-large-shapes',size:'large',iconAlign:'top'">Shapes</a>
+		        			<a href="#" class="easyui-linkbutton" 
+		        			data-options="iconCls:'icon-large-smartart',size:'large',iconAlign:'top'">SmartArt</a>
+		        			<a href="#" class="easyui-linkbutton" 
+		        			data-options="iconCls:'icon-large-chart',size:'large',iconAlign:'top'">Chart</a>
+		    			</div>
+					</div>
+					<div data-options="region:'center'" style="padding:5px;background:#eee;">
+					</div>
+				</div> -->
+				
+			    
+				<ul id="tt" class="easyui-datalist" style="height: 100%"
+					data-options="url:'/data/grid.json',method: 'get', rownumbers: true, toolbar:'#tb',
+					pagination: true, pagePosition: 'bottom',pageSize:20, pageList: [20,40,65,80,100],
+					valueField: 'itemid', textFormatter: indexPage.formatterText">
+			    </ul>
+			    <div id="tb" style="padding:2px 5px;">
+			        Date From: <input class="easyui-datebox" style="width:110px">
+			        To: <input class="easyui-datebox" style="width:110px">
+			        Language: 
+			        <select class="easyui-combobox" panelHeight="auto" style="width:100px">
+			            <option value="java">Java</option>
+			            <option value="c">C</option>
+			            <option value="basic">Basic</option>
+			            <option value="perl">Perl</option>
+			            <option value="python">Python</option>
+			        </select>
+			        <a href="#" class="easyui-linkbutton" iconCls="icon-search">Search</a>
+			    </div>
+			</div>
+		</div>
+	</div>
+</body>
+<script>
+	$(function() {
+		console.log('dom ready');
+		var height = $("#index-layout-west").height();
+		
+		$("#index-datalist-unicast").datalist({
+			height : (height - 36),
+			onSelect : function(index, row) {
+				console.log("index=" + (typeof index) + ":" + index);
+				console.log("row=" + (typeof row) + ":" + row);
+				console.log(row);
+				$("#index-datalist-to").datalist({
+					url : '/data/empty.json?value=' + row.value,
+					method : 'get'
+				});
+			}
+		});
+		$("#index-datalist-multicast").datalist({
+			height : (height - 36),
+			onSelect : function(index, row) {
+				console.log("index=" + (typeof index) + ":" + index);
+				console.log("row=" + (typeof row) + ":" + row);
+				console.log(row);
+				$("#index-datalist-to").datalist({
+					url : '/data/empty2.json?value=' + row.value,
+					method : 'get'
+				});
+			}
+		});
+		$("#index-datalist-to").datalist({
+			height : (height - 2)
+		});
+		
+		$("#index-tabs").tabs({
+			height : height,
+			onSelect: function(title, index) {
+				console.log("#index-tabs onSelect")
+				console.log(title);
+				console.log(index);
+				console.log("indexPage.fromWidth=" + indexPage.fromWidth);
+				var datalistId = "";
+				if(index == 0) {
+					console.log("onUnselectUnicastResize");
+					datalistId = "#index-datalist-unicast";
+				} else if (index == 1) {
+					console.log("onUnselectMulticastResize");
+					datalistId = "#index-datalist-multicast";
+				}
+				
+				$(datalistId).datalist('resize', {
+					width : (indexPage.fromWidth - 9)
+				});
+				
+				var row = $(datalistId).datalist('getSelected');
+				if (row != null) {
+					console.log(row.value);
+					var rowIndex = $(datalistId).datalist('getRowIndex', row);
+					console.log(rowIndex);
+					$(datalistId).datalist('selectRow', rowIndex);
+				} else {
+					console.log("no selectedRow");
+				}
+				
+			},
+			onUnselect: function(title, index) {
+				console.log("onUnselectIndex=" + index);
+				console.log("indexPage.fromWidth=" + indexPage.fromWidth);
+				$("#index-datalist-to").datalist('loadData', []);
+			}
+		});
+		$('#menu-index').bind('click', function() {
+			$("#index-datalist-unicast").datalist('load', {
+				code : '01',
+				name : 'name01'
+			});
+		});
+		
+	});
+</script>
+</html>

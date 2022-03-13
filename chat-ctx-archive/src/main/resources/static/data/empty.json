@@ -1,0 +1,17 @@
+[
+	{
+		"value": "AL",
+		"text": "Alabama",
+		"group": "Printer"
+	},
+	{
+		"value": "AK",
+		"text": "Alaska",
+		"group": "Printer"
+	},
+	{
+		"value": "AZ",
+		"text": "Arizona",
+		"group": "Printer"
+	}
+]
